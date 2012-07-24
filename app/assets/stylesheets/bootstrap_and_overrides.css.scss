@@ -1,0 +1,30 @@
+@import "bootstrap";
+body { padding-top: 60px; }
+
+@import "bootstrap-responsive";
+
+// Set the correct sprite paths
+$iconSpritePath: image-path("glyphicons-halflings.png");
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+$fontAwesomeEotPath: image-path('fontawesome-webfont.eot');
+$fontAwesomeWoffPath: image-path('fontawesome-webfont.woff');
+$fontAwesomeTtfPath: image-path('fontawesome-webfont.ttf');
+$fontAwesomeSvgzPath: image-path('fontawesome-webfont.svgz');
+$fontAwesomeSvgPath: image-path('fontawesome-webfont.svg');
+
+// Font Awesome
+@import "font-awesome";
+
+.label-info{
+	text-align: center;
+	padding: 5px 10px 5px 10px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+.input-xxlarge{
+	height: 27px;
+}
+
