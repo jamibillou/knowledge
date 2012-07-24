@@ -1,0 +1,19 @@
+.row
+	.span10.offset1.lead My profile
+
+.row
+	.span8.offset1.well
+		=form_for @user do |f|
+			%table
+				%tr
+					%td
+						%strong	Full name
+					%td
+						=f.text_field :fullname, :class => 'input-medium'
+				%tr
+					%td
+						%strong Job title
+					%td
+						=f.text_field :title, :class => 'input-medium'
+			%br/
+			= f.submit "Submit your changes", :class => "btn btn-large btn-primary"

@@ -19,15 +19,22 @@
           =link_to "PX'Therapeutics knowledge database", root_path, :class => 'brand'
           .btn-group.pull-right
             - if user_signed_in? 
-              %a.btn.btn-primary{ href: '#' }
+              %a.btn.btn-primary{ href: edit_user_path(current_user) }
                 %i.icon-user.icon-white
-                = current_user.email
+                = current_user.fullname
               %a.btn.btn-primary.dropdown-toggle{ href: '#', 'data-toggle' => "dropdown" }
                 %span.icon-caret-down
               %ul.dropdown-menu
-                %li=link_to 'My info', '#'
-                %li=link_to 'Logout', destroy_user_session_path
+                %li=link_to 'My profile', edit_user_path(current_user)
+                %li=link_to 'Logout', destroy_user_session_path, method: 'delete'
             - else
               %a.btn.btn-primary{ href: new_user_session_path }
                 Signin
+
+    .row
+      .span5.offset1
+        - flash.each do |name, msg|
+          %div{ class: "alert alert-#{name == :notice || name == :success ? 'success' : 'error'}" }
+            %a.close{ "data-dismiss" => 'alert'} &#215;
+            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
     = yield
