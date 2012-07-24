@@ -1,5 +1,7 @@
 Knowledge::Application.routes.draw do
 
-root :to => 'pages#index'
+  devise_for :users
+
+  root :to => 'pages#index'
 
 end
