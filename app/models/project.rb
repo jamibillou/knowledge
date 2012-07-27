@@ -1,6 +1,10 @@
 class Project < ActiveRecord::Base
 
 	attr_accessible :company, :name, :contact, :contact_info, :lab_books
+
+	has_and_belongs_to_many :users
+
+	validates_presence_of :name, :company
 	
 end
 # == Schema Information
