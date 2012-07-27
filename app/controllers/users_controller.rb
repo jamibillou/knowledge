@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 	include ApplicationHelper
 
+	before_filter :signed_in?
+
 	def edit
 		@user = User.find(params[:id])
 	end

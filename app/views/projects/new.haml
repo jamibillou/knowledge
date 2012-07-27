@@ -1,0 +1,38 @@
+.row
+	.span10.offset1.lead Create a project
+
+=form_for @project do |f|
+	.row
+		.span8.offset1.well
+			%h6 General Info
+			%br/
+			%table
+				%tr
+					%td
+						%h4 Name*
+					%td.form-column
+						=f.text_field :name, class:"input-xxlarge", style:'height:30px;font-size:16pt'
+				%tr
+					%td
+						%h4 Company*
+					%td.form-column
+						=f.text_field :company, class:"input-xlarge", style:'height:30px;font-size:16pt'
+				%tr
+					%td
+						%h4 Contact name
+					%td.form-column
+						=f.text_field :contact, class:"input-xlarge", style:'height:30px;font-size:16pt'
+				%tr
+					%td
+						%h4 Contact info
+					%td.form-column
+						=f.text_area :contact_info, class:"input-xlarge", rows: 3, style:'font-size:14pt'
+				%tr
+					%td
+						%h4 Lab books
+					%td.form-column
+						=f.text_area :lab_books, class:"input-xlarge", rows: 3, style:'font-size:14pt'
+
+	.row
+		.span2.offset11
+			=f.submit 'Add this project', class: "btn-primary btn-gigantic"
