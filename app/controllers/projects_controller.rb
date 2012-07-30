@@ -16,12 +16,21 @@ class ProjectsController < ApplicationController
 			render :new
 		else
 			@project.users << current_user
-			flash[:notice] = "The project has been created!"
-			redirect_to root_path
+			redirect_to root_path, flash: { notice: "The project has been created!" }
 		end
 	end
 
 	def edit
 		@project = Project.find(params[:id])
+	end
+
+	def update
+		@project = Project.find(params[:id])
+		unless @project.update_attributes params[:project]
+			flash[:error] = error_messages(@project)
+			redirect_to edit_project_path @project
+		else
+			redirect_to @project, flash: { notice: "Project has been updated!" }
+		end	
 	end
 end
