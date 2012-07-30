@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
-  has_and_belongs_to_many :projects
-
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :title
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :title, :projects
+
+  has_many :involvings, :dependent => :destroy
+  has_many :projects, :through => :involvings
+
 end
 # == Schema Information
 #

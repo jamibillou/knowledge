@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 			flash[:error] = error_messages(@project)
 			render :new
 		else
-			@project.users.build
+			@project.users << current_user
 			flash[:notice] = "The project has been created!"
 			redirect_to root_path
 		end

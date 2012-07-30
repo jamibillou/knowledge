@@ -1,8 +1,9 @@
 class Project < ActiveRecord::Base
 
-	attr_accessible :company, :name, :contact, :contact_info, :lab_books
+	attr_accessible :company, :name, :contact, :contact_info, :lab_books, :users
 
-	has_and_belongs_to_many :users
+	has_many :involvings, :dependent => :destroy
+	has_many :users, :through => :involvings
 
 	validates_presence_of :name, :company
 	
