@@ -11,9 +11,10 @@ end
 #  company      :string(255)
 #  name         :string(255)
 #  contact      :string(255)
-#  contact_info :text(255)
+#  contact_info :text
 #  lab_books    :text
 #  created_at   :datetime        not null
 #  updated_at   :datetime        not null
+#  description  :text
 #
 
