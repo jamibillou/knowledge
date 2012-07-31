@@ -1,6 +1,6 @@
 class Involving < ActiveRecord::Base
 
-	attr_accessible :manager
+	attr_accessible :manager, :user_id, :project_id
 
 	belongs_to :user
 	belongs_to :project

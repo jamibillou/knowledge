@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		@project.constructs.build
 	end
 
 	def create
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
 			flash[:error] = error_messages(@project)
 			render :new
 		else
+			@project.constructs.build(params[:project][:constructs])
 			@project.users << current_user
 			redirect_to root_path, flash: { notice: "The project has been created!" }
 		end
@@ -22,6 +24,7 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@project = Project.find(params[:id])
+		@project.constructs.build
 	end
 
 	def update
@@ -30,6 +33,7 @@ class ProjectsController < ApplicationController
 			flash[:error] = error_messages(@project)
 			redirect_to edit_project_path @project
 		else
+			@project.constructs.build(params[:project][:constructs])
 			redirect_to @project, flash: { notice: "Project has been updated!" }
 		end	
 	end

@@ -3,15 +3,16 @@
 		%a.btn.btn-primary{ href: new_project_path }
 			%i.icon-pencil.icon-white
 			Add a project
-.row
-	.span10.offset1.lead
-		Latest updates
-.row
-	.span8.offset1
-		.well
-			%strong
-				= link_to @project.users.last.fullname, @project.users.last, :style => 'color:black' 
-			created a new project:
-			= link_to @project.name, @project
-			%h6.pull-right
-				= time_ago_in_words(@project.created_at)+' ago'
+- unless @project.nil?
+	.row
+		.span10.offset1.lead
+			Latest updates
+	.row
+		.span8.offset1
+			.well
+				%strong
+					= link_to @project.users.last.fullname, @project.users.last, :style => 'color:black' 
+				created a new project:
+				= link_to @project.name, @project
+				%h6.pull-right
+					= time_ago_in_words(@project.created_at)+' ago'

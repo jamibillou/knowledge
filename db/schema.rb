@@ -11,19 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730140941) do
-
-  create_table "constructs", :force => true do |t|
-    t.string   "name"
-    t.string   "organism"
-    t.string   "protein_family"
-    t.float    "size"
-    t.float    "pi"
-    t.integer  "nb_cystein"
-    t.text     "sequence"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
+ActiveRecord::Schema.define(:version => 20120731075806) do
 
   create_table "involvings", :force => true do |t|
     t.integer  "project_id"
@@ -31,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120730140941) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.boolean  "manager"
+  end
+
+  create_table "project_constructs", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "construct_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "projects", :force => true do |t|
@@ -44,9 +39,16 @@ ActiveRecord::Schema.define(:version => 20120730140941) do
     t.text     "description"
   end
 
-  create_table "projects_users", :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
+  create_table "constructs", :force => true do |t|
+    t.string   "name"
+    t.string   "organism"
+    t.text     "protein_family"
+    t.float    "size"
+    t.float    "pi"
+    t.integer  "nb_cystein"
+    t.text     "sequence"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

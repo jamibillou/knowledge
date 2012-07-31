@@ -1,0 +1,39 @@
+.span8.offset1.well
+	%h6 CONSTRUCT
+	%br/
+	%table
+		%tr
+			%td
+				%h4 Name*
+			%td.form-column
+				=f.text_field :name, class:"input-xlarge", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Organism*
+			%td.form-column
+				=f.text_field :organism, class:"input-xlarge", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Protein Family
+			%td.form-column
+				=f.text_field :protein_family, class:"input-xlarge", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Size
+			%td.form-column
+				=f.text_field :size, class:"input-small", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 PI
+			%td.form-column
+				=f.text_field :pi, class:"input-small", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Number of cystein
+			%td.form-column
+				=f.text_field :nb_cystein, class:"input-small", style:'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Sequence
+			%td.form-column
+				=f.text_area :sequence, rows: 4, style:'width: 500px;font-size:12pt'
