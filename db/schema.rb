@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20120731075806) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.boolean  "manager"
+    t.boolean  "manager",    :default => false
   end
 
   create_table "project_constructs", :force => true do |t|

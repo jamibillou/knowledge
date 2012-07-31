@@ -11,6 +11,29 @@
 			%h6 GENERAL INFO
 			- unless @project.description.blank?
 				%p=simple_format(@project.description)
+			- unless @project.constructs.empty?
+				%h6 CONSTRUCT
+				.lead 
+					= "Protein: #{construct.name} (#{construct.protein_family} family)"
+					%br/
+					Organism:
+					= construct.organism
+				- unless construct.size.blank?
+					%br/
+					%strong Size:
+					= construct.size	
+				- unless construct.pi.blank?
+					%br/
+					%strong PI:
+					= construct.pi
+				- unless construct.nb_cystein.blank?
+					%br/
+					%strong Number of cystein:
+					= construct.nb_cystein
+				- unless construct.sequence.blank?
+					.lead Sequence:
+					%pre= construct.sequence	
+
 	- unless project_managers.blank? && involved_people.blank?
 		.span5.offset1
 			.well

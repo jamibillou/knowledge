@@ -7,4 +7,8 @@ module ProjectsHelper
 	def involved_people
 		@project.involvings.where(:manager => false).map{ |i| link_to i.user.fullname, i.user }.join.html_safe
 	end
+
+	def construct
+		@project.constructs.first
+	end
 end
