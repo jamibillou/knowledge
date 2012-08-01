@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 
-	attr_accessible :company, :name, :contact, :contact_info, :lab_books, :description, :users, :constructs_attributes
+	attr_accessible :company, :name, :contact, :contact_info, :lab_books, :description, :users, :constructs_attributes, :expressions_attributes
 
 	has_many :involvings, :dependent => :destroy
 	has_many :users, :through => :involvings
@@ -8,8 +8,11 @@ class Project < ActiveRecord::Base
 	has_many :project_constructs, :dependent => :destroy
 	has_many :constructs, :through => :project_constructs
 
-	accepts_nested_attributes_for :constructs, :reject_if => lambda { |attr| attr['name'].blank? || attr['organism'].blank? }, 
+	has_many :expressions, :dependent => :destroy
+
+	accepts_nested_attributes_for :constructs,  :reject_if => lambda { |attr| attr['name'].blank? || attr['organism'].blank? }, 
 																:allow_destroy => true
+	accepts_nested_attributes_for :expressions, :reject_if => lambda { }
 
 	validates_presence_of :name, :company
 	

@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@project = Project.find(params[:id])
-		@project.constructs.build
+		@project.constructs.count { @project.constructs.build }
 	end
 
 	def update

@@ -13,7 +13,7 @@ end
 #  id             :integer         not null, primary key
 #  name           :string(255)
 #  organism       :string(255)
-#  protein_family :string(255)
+#  protein_family :text
 #  size           :float
 #  pi             :float
 #  nb_cystein     :integer
