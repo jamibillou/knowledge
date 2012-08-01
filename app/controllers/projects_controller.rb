@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
 	def new
 		@project = Project.new
 		@project.constructs.build
+		@project.expressions.build
 	end
 
 	def create

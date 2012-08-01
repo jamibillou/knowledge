@@ -1,0 +1,66 @@
+.span8.offset1.well
+	%h6 EXPRESSION
+	%br/
+	%table{ cellpadding: 10 }
+		%tr
+			%td
+				%h4 Expression system*
+			%td.form-column
+				%p
+					= f.radio_button :system, "bacteria"
+					Bacteria
+					= f.radio_button :system, "mammalian"
+					Mammalian
+					= f.radio_button :system, "mammalian"
+					Yeast
+					= f.radio_button :system, "mammalian"
+					Insect
+				%p
+				= f.radio_button :system, ""
+				Other:
+				= f.text_field :system, class:"input-small"
+		%tr
+			%td
+				%h4 Vector backbone
+			%td.form-column
+				%p
+					= f.radio_button :vector_backbone, "pET"
+					pET
+					= f.radio_button :vector_backbone, "pQE"
+					pQE
+					= f.radio_button :vector_backbone, "pcDNA"
+					pcDNA
+					= f.radio_button :vector_backbone, "pHHUm"
+					pHHUm
+				%p
+				= f.radio_button :vector_backbone, ""
+				Other:
+				= f.text_field :vector_backbone, class:"input-small"
+		%tr
+			%td
+				%h4 Gene
+			%td.form-column
+				%p
+					= f.radio_button :gene, "optimized"
+					Optimized
+					= f.radio_button :gene, "non_optimized"
+					Non-optimized
+		%tr
+			%td
+				%h4 Tag
+			%td.form-column
+				%p
+					= f.radio_button :tag, "No tag"
+					No tag
+					= f.radio_button :tag, "His"
+					His
+					= f.radio_button :tag, "GST"
+					GST
+					= f.radio_button :tag, "MBP"
+					MBP
+					= f.radio_button :tag, "SUMO"
+					SUMO
+				%p
+				= f.radio_button :tag, ""
+				Other:
+				= f.text_field :tag, class:"input-small"

@@ -37,7 +37,8 @@
 						%h4 Description
 					%td.form-column
 						=f.text_area :description, rows: 3, style:'width: 500px;font-size:12pt'
-		= f.fields_for(:constructs) { |construct_builder| render 'fields_construct', f: construct_builder }
+		= f.fields_for(:constructs)  { |construct_builder| render 'fields_construct', f: construct_builder }
+		= f.fields_for(:expressions) { |expression_builder| render 'fields_expression', f: expression_builder }
 
 	.row
 		.span2.offset11
