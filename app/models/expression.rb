@@ -1,6 +1,7 @@
 class Expression < ActiveRecord::Base
 
-	attr_accessible :project_id, :system, :vector_backbone, :gene, :tag, :cleavage_site, :compartment, :strain, :medium, :culture, :temperature, :status
+	attr_accessible :project_id, :system, :vector_backbone, :gene, :tag, :cleavage_site, :compartment, :strain, :method, :medium, :solubility,
+									:culture, :temperature, :status
 
 	belongs_to :project
 end
@@ -23,5 +24,8 @@ end
 #  status          :string(255)
 #  created_at      :datetime        not null
 #  updated_at      :datetime        not null
+#  cleavage_site   :string(255)
+#  solubility      :string(255)
+#  method          :string(255)
 #
 

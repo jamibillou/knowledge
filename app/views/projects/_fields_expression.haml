@@ -11,9 +11,9 @@
 					Bacteria
 					= f.radio_button :system, "mammalian"
 					Mammalian
-					= f.radio_button :system, "mammalian"
+					= f.radio_button :system, "yeast"
 					Yeast
-					= f.radio_button :system, "mammalian"
+					= f.radio_button :system, "insect"
 					Insect
 				%p
 				= f.radio_button :system, ""
@@ -64,3 +64,101 @@
 				= f.radio_button :tag, ""
 				Other:
 				= f.text_field :tag, class:"input-small"
+		%tr
+			%td
+				%h4 Cleavage site
+			%td.form-column
+				%p
+					= f.radio_button :cleavage_site, "none"
+					None
+					= f.radio_button :cleavage_site, "factor Xa"
+					Factor Xa
+					= f.radio_button :cleavage_site, "thrombin"
+					Thrombin
+				%p
+				= f.radio_button :cleavage_site, ""
+				Other:
+				= f.text_field :cleavage_site, class:"input-small"
+		%tr
+			%td
+				%h4 Expression compartment
+			%td.form-column
+				%p
+					= f.radio_button :compartment, "cytoplasm"
+					Cytoplasm
+					= f.radio_button :compartment, "periplasm"
+					Periplasm
+					= f.radio_button :compartment, "secretion"
+					Secretion
+		%tr
+			%td
+				%h4 Solubility
+			%td.form-column
+				%p
+					= f.radio_button :solubility, "soluble"
+					Soluble
+					= f.radio_button :solubility, "insoluble"
+					Insoluble
+					= f.radio_button :solubility, "membrane"
+					Membrane
+		%tr
+			%td
+				%h4 Expression conditions - Strain
+			%td.form-column
+				%p
+					= f.radio_button :strain, "BL21"
+					BL21
+					= f.radio_button :strain, "BL21 (DE3)"
+					BL21 (DE3)
+					= f.radio_button :strain, "BLR (DE3)"
+					BLR (DE3)
+					= f.radio_button :strain, "HMS174"
+					HMS174
+					= f.radio_button :strain, "HMS174 (DE3)"
+					HMS174 (DE3)
+					%br/
+					= f.radio_button :strain, "CHO-S"
+					CHO-S
+					= f.radio_button :strain, "HEK293"
+					HEK293
+					= f.radio_button :strain, "CHO-DG44"
+					CHO-DG44
+					= f.radio_button :strain, "PER-C6"
+					PER-C6
+				%p
+				= f.radio_button :strain, ""
+				Other:
+				= f.text_field :strain, class:"input-small"
+		%tr
+			%td
+				%h4 Expression conditions - Method
+			%td.form-column
+				%p
+					= f.radio_button :solubility, "shake flask"
+					Shake flask
+					= f.radio_button :solubility, "fermentor/bioreactor"
+					Fermentor/bioreactor
+					= f.radio_button :solubility, "wave"
+					Wave
+		%tr
+			%td
+				%h4 Expression conditions - Medium
+			%td.form-column
+				%p
+					= f.radio_button :medium, "LB"
+					LB
+					= f.radio_button :medium, "MAI"
+					MAI
+					= f.radio_button :medium, "Riesenberg"
+					Riesenberg
+				%p
+				= f.radio_button :medium, ""
+				Other:
+				= f.text_field :medium, class:"input-small"
+		%tr
+			%td
+				%h4 Temperature
+			%td.form-column
+				=f.text_field :temperature, class:"input-small", style:'height:30px;font-size:16pt'
+.pull-right.span2.offset2{ style: 'margin-top: 800px' }
+	=f.submit 'Add this project', class: "btn-primary btn-gigantic"
