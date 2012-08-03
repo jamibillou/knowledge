@@ -1,4 +1,4 @@
-.span8.offset1.well
+.span7.offset1.well
 	%h6 EXPRESSION
 	%br/
 	%table{ cellpadding: 10 }
@@ -15,10 +15,6 @@
 					Yeast
 					= f.radio_button :system, "insect"
 					Insect
-				%p
-				= f.radio_button :system, ""
-				Other:
-				= f.text_field :system, class:"input-small"
 		%tr
 			%td
 				%h4 Vector backbone
@@ -32,10 +28,6 @@
 					pcDNA
 					= f.radio_button :vector_backbone, "pHHUm"
 					pHHUm
-				%p
-				= f.radio_button :vector_backbone, ""
-				Other:
-				= f.text_field :vector_backbone, class:"input-small"
 		%tr
 			%td
 				%h4 Gene
@@ -60,10 +52,6 @@
 					MBP
 					= f.radio_button :tag, "SUMO"
 					SUMO
-				%p
-				= f.radio_button :tag, ""
-				Other:
-				= f.text_field :tag, class:"input-small"
 		%tr
 			%td
 				%h4 Cleavage site
@@ -75,10 +63,6 @@
 					Factor Xa
 					= f.radio_button :cleavage_site, "thrombin"
 					Thrombin
-				%p
-				= f.radio_button :cleavage_site, ""
-				Other:
-				= f.text_field :cleavage_site, class:"input-small"
 		%tr
 			%td
 				%h4 Expression compartment
@@ -125,20 +109,16 @@
 					CHO-DG44
 					= f.radio_button :strain, "PER-C6"
 					PER-C6
-				%p
-				= f.radio_button :strain, ""
-				Other:
-				= f.text_field :strain, class:"input-small"
 		%tr
 			%td
 				%h4 Expression conditions - Method
 			%td.form-column
 				%p
-					= f.radio_button :solubility, "shake flask"
+					= f.radio_button :method, "shake flask"
 					Shake flask
-					= f.radio_button :solubility, "fermentor/bioreactor"
+					= f.radio_button :method, "fermentor/bioreactor"
 					Fermentor/bioreactor
-					= f.radio_button :solubility, "wave"
+					= f.radio_button :method, "wave"
 					Wave
 		%tr
 			%td
@@ -151,14 +131,10 @@
 					MAI
 					= f.radio_button :medium, "Riesenberg"
 					Riesenberg
-				%p
-				= f.radio_button :medium, ""
-				Other:
-				= f.text_field :medium, class:"input-small"
 		%tr
 			%td
-				%h4 Temperature
+				%h4 Temperature (°C)
 			%td.form-column
 				=f.text_field :temperature, class:"input-small", style:'height:30px;font-size:16pt'
-.pull-right.span2.offset2{ style: 'margin-top: 800px' }
-	=f.submit 'Add this project', class: "btn-primary btn-gigantic"
+				=f.hidden_field :status, value: "selected"
+

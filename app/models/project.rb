@@ -12,7 +12,8 @@ class Project < ActiveRecord::Base
 
 	accepts_nested_attributes_for :constructs,  :reject_if => lambda { |attr| attr['name'].blank? || attr['organism'].blank? }, 
 																:allow_destroy => true
-	accepts_nested_attributes_for :expressions, :reject_if => lambda { |attr| attr['system'].blank? }
+	accepts_nested_attributes_for :expressions, :reject_if => lambda { |attr| attr['system'].blank? },
+																:allow_destroy => true
 
 	validates_presence_of :name, :company
 	

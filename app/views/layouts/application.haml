@@ -38,3 +38,5 @@
             %a.close{ "data-dismiss" => 'alert'} &#215;
             = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
     = yield
+
+    %footer= debug(params) if Rails.env.development?

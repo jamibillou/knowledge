@@ -37,7 +37,9 @@
 						%h4 Description
 					%td.form-column
 						=f.text_area :description, class:"input-xlarge", rows: 3, style:'width: 500px;font-size:12pt'
-		= f.fields_for(:constructs) { |construct_builder| render 'fields_construct', f: construct_builder }
-	.row
-		.span2.offset11
-			=f.submit 'Edit project', class: "btn-primary btn-gigantic"
+		= f.fields_for(:constructs)  { |construct_builder| render 'fields_construct', f: construct_builder }
+		.pull-right.span2.offset2{ style: 'margin-top: 400px' }
+			=f.submit 'Edit this project', class: "btn-primary btn-gigantic"
+		= f.fields_for(:expressions) { |expression_builder| render 'fields_expression', f: expression_builder }
+		.pull-right.span2.offset2{ style: 'margin-top: 800px' }
+			=f.submit 'Edit this project', class: "btn-primary btn-gigantic"

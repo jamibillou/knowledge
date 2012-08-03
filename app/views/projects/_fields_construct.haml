@@ -19,7 +19,7 @@
 				=f.text_field :protein_family, class:"input-xlarge", style:'height:30px;font-size:16pt'
 		%tr
 			%td
-				%h4 Size
+				%h4 Size (Da)
 			%td.form-column
 				=f.text_field :size, class:"input-small", style:'height:30px;font-size:16pt'
 		%tr
@@ -29,7 +29,7 @@
 				=f.text_field :pi, class:"input-small", style:'height:30px;font-size:16pt'
 		%tr
 			%td
-				%h4 Number of cystein
+				%h4 Number of cysteins
 			%td.form-column
 				=f.text_field :nb_cystein, class:"input-small", style:'height:30px;font-size:16pt'
 		%tr
@@ -37,5 +37,3 @@
 				%h4 Sequence
 			%td.form-column
 				=f.text_area :sequence, rows: 4, style:'width: 500px;font-size:12pt'
-.pull-right.span2.offset2{ style: 'margin-top: 400px' }
-	=f.submit 'Add this project', class: "btn-primary btn-gigantic"

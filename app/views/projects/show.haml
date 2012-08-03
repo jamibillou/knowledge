@@ -19,17 +19,18 @@
 					Organism:
 					= construct.organism
 				- unless construct.size.blank?
-					%br/
-					%strong Size:
-					= construct.size	
+					%span.title Size:
+					= "#{construct.size} Da"
 				- unless construct.pi.blank?
 					%br/
-					%strong PI:
+					%span.title PI:
 					= construct.pi
 				- unless construct.nb_cystein.blank?
 					%br/
-					%strong Number of cystein:
+					%span.title Number of cysteins:
 					= construct.nb_cystein
+				%br/
+				%br/
 				- unless construct.sequence.blank?
 					.lead Sequence:
 					%pre= construct.sequence	
@@ -39,28 +40,77 @@
 			.well
 				%h6 PX
 				- unless project_managers.blank?
-					%strong	Project manager(s):
+					%span.title	Project manager(s):
 					= project_managers
 					%br/
 				- unless involved_people.blank?
-					%strong	Involved people:
+					%span.title	Involved people:
 					= involved_people
 	.span5.offset1
 		.well
 			%h6 CUSTOMER
-			%strong	Company:
-			=@project.company
+			%span.title	Company:
+			= @project.company
 			%br/
 			- unless @project.contact.blank?
-				%strong	Contact(s):
+				%span.title	Contact(s):
 				=@project.contact
 				%br/
 			- unless @project.contact_info.blank?	
 				%i.icon-briefcase 
-				%strong Contact info:
+				%span.title Contact info:
 				=@project.contact_info
 	- unless @project.lab_books.blank? 				
 		.span5.offset1
 			.well
 				%h6 LAB BOOKS
 				=@project.lab_books
+	- unless @project.expressions.empty?
+		.span11.offset1
+			.well
+				%H6 EXPRESSION
+				- unless selected_expression.system.blank?
+					%span.title System:
+					= selected_expression.system
+				- unless selected_expression.vector_backbone.blank?
+					%br/
+					%span.title Vector backbone:
+					= selected_expression.vector_backbone
+				- unless selected_expression.gene.blank?
+					%br/
+					%span.title Gene:
+					= selected_expression.gene
+				- unless selected_expression.tag.blank?
+					%br/
+					%span.title Tag:
+					= selected_expression.tag
+				- unless selected_expression.cleavage_site.blank?
+					%br/
+					%span.title Cleavage site:
+					= selected_expression.cleavage_site
+				- unless selected_expression.compartment.blank?
+					%br/
+					%span.title Compartment:
+					= selected_expression.compartment
+				- unless selected_expression.solubility.blank?
+					%br/
+					%span.title Solubility:
+					= selected_expression.solubility
+				- unless no_expression_conditions?
+					%h3 Expression conditions
+					- unless selected_expression.strain.blank?
+						%br/
+						%span.title Strain:
+						= selected_expression.strain
+					- unless selected_expression.method.blank?
+						%br/
+						%span.title Method:
+						= selected_expression.method
+					- unless selected_expression.medium.blank?
+						%br/
+						%span.title Medium:
+						= selected_expression.medium
+					- unless selected_expression.temperature.blank?
+						%br/
+						%span.title Temperature:
+						= "#{selected_expression.temperature} °C"
