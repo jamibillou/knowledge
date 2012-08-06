@@ -15,6 +15,10 @@
 					Yeast
 					= f.radio_button :system, "insect"
 					Insect
+					%br/
+					= f.radio_button :system, text_input?('system', f.object.system), id: 'other_system_radio', checked: radio_checked?('system', f.object.system)
+					Other:
+					%input.input-small#other_system_text{ value: text_input?('system', f.object.system) }
 		%tr
 			%td
 				%h4 Vector backbone
@@ -29,9 +33,9 @@
 					= f.radio_button :vector_backbone, "pHHUm"
 					pHHUm
 					%br/
-					= f.radio_button :vector_backbone, nil, id: 'other_vector_backbone_radio', checked: radio_checked?(f.object.vector_backbone) 
+					= f.radio_button :vector_backbone, text_input?('vector_backbone', f.object.vector_backbone), id: 'other_vector_backbone_radio', checked: radio_checked?('vector_backbone', f.object.vector_backbone) 
 					Other:
-					%input.input-small#other_vector_backbone_text{ value: text_input?(f.object.vector_backbone) }
+					%input.input-small#other_vector_backbone_text{ value: text_input?('vector_backbone', f.object.vector_backbone) }
 		%tr
 			%td
 				%h4 Gene
@@ -56,6 +60,10 @@
 					MBP
 					= f.radio_button :tag, "SUMO"
 					SUMO
+					%br/
+					= f.radio_button :tag, text_input?('tag', f.object.tag), id: 'other_tag_radio', checked: radio_checked?('tag', f.object.tag) 
+					Other:
+					%input.input-small#other_tag_text{ value: text_input?('tag', f.object.tag) }		
 		%tr
 			%td
 				%h4 Cleavage site
@@ -67,6 +75,10 @@
 					Factor Xa
 					= f.radio_button :cleavage_site, "thrombin"
 					Thrombin
+					%br/
+					= f.radio_button :cleavage_site, text_input?('cleavage_site', f.object.cleavage_site), id: 'other_cleavage_site_radio', checked: radio_checked?('cleavage_site', f.object.cleavage_site) 
+					Other:
+					%input.input-small#other_cleavage_site_text{ value: text_input?('cleavage_site', f.object.cleavage_site) }		
 		%tr
 			%td
 				%h4 Expression compartment
@@ -113,6 +125,10 @@
 					CHO-DG44
 					= f.radio_button :strain, "PER-C6"
 					PER-C6
+					%br/
+					= f.radio_button :strain, text_input?('strain', f.object.strain), id: 'other_strain_radio', checked: radio_checked?('strain', f.object.strain)
+					Other:
+					%input.input-small#other_strain_text{ value: text_input?('strain', f.object.strain) }		
 		%tr
 			%td
 				%h4 Expression conditions - Method
@@ -135,6 +151,10 @@
 					MAI
 					= f.radio_button :medium, "Riesenberg"
 					Riesenberg
+					%br/
+					= f.radio_button :medium, text_input?('medium', f.object.medium), id: 'other_medium_radio', checked: radio_checked?('medium', f.object.medium)
+					Other:
+					%input.input-small#other_medium_text{ value: text_input?('medium', f.object.medium) }		
 		%tr
 			%td
 				%h4 Temperature (°C)

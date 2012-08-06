@@ -1,3 +1,6 @@
 jQuery ->
-	$('#other_vector_backbone_text').focus( -> $('#other_vector_backbone_radio').attr('checked','checked'))
-	$('#other_vector_backbone_text').keyup( -> $('#other_vector_backbone_radio').val($(this).val()))
+	$.each(['system','vector_backbone','tag','cleavage_site', 'strain', 'medium'], -> handle_other_field(this))	
+
+@handle_other_field = (id) ->
+	$('#other_'+id+'_text').focus( -> $('#other_'+id+'_radio').attr('checked','checked'))
+	$('#other_'+id+'_text').change( -> $('#other_'+id+'_radio').val($(this).val()))
