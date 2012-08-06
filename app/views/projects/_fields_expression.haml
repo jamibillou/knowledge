@@ -28,6 +28,10 @@
 					pcDNA
 					= f.radio_button :vector_backbone, "pHHUm"
 					pHHUm
+					%br/
+					= f.radio_button :vector_backbone, nil, id: 'other_vector_backbone_radio', checked: radio_checked?(f.object.vector_backbone) 
+					Other:
+					%input.input-small#other_vector_backbone_text{ value: text_input?(f.object.vector_backbone) }
 		%tr
 			%td
 				%h4 Gene

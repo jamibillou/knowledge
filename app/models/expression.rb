@@ -3,6 +3,8 @@ class Expression < ActiveRecord::Base
 	attr_accessible :project_id, :system, :vector_backbone, :gene, :tag, :cleavage_site, :compartment, :strain, :method, :medium, :solubility,
 									:culture, :temperature, :status
 
+	attr_accessor :other_vector_backbone
+
 	belongs_to :project
 end
 
