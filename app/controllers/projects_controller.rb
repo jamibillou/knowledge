@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
 		@project = Project.new
 		@project.constructs.build
 		@project.expressions.build
+		@project.purifications.build
 	end
 
 	def create
@@ -17,9 +18,12 @@ class ProjectsController < ApplicationController
 			flash[:error] = error_messages(@project)
 			@project.constructs.build
 			@project.expressions.build
+			@project.purifications.build
 			render :new
 		else
 			@project.constructs.build(params[:project][:constructs])
+			@project.expressions.build(params[:project][:expressions])
+			@project.purifications.build(params[:project][:purifications])
 			@project.users << current_user
 			redirect_to root_path, flash: { notice: "The project has been created!" }
 		end
@@ -37,6 +41,11 @@ class ProjectsController < ApplicationController
 		else
 			@project.expressions.build
 		end
+		unless @project.purifications.empty?
+			@project.purifications.count { @project.purifications.build }
+		else
+			@project.purifications.build
+		end
 	end
 
 	def update
@@ -52,6 +61,11 @@ class ProjectsController < ApplicationController
 				@project.expressions.count { @project.expressions.build }
 			else
 				@project.expressions.build
+			end
+			unless @project.purifications.empty?
+				@project.purifications.count { @project.purifications.build }
+			else
+				@project.purifications.build
 			end
 			redirect_to edit_project_path @project
 		else

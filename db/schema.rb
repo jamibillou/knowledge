@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120802085918) do
+ActiveRecord::Schema.define(:version => 20120807131837) do
 
   create_table "constructs", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,28 @@ ActiveRecord::Schema.define(:version => 20120802085918) do
   create_table "projects_users", :force => true do |t|
     t.integer "project_id"
     t.integer "user_id"
+  end
+
+  create_table "purifications", :force => true do |t|
+    t.integer  "project_id"
+    t.string   "lysis"
+    t.string   "lysis_buffer"
+    t.string   "clarification"
+    t.string   "preparation_extract"
+    t.string   "refolding_mode"
+    t.string   "refolding_buffer"
+    t.string   "presence_of"
+    t.string   "chromatography"
+    t.string   "endotoxin"
+    t.string   "final_buffer"
+    t.string   "concentration"
+    t.string   "final_filtration"
+    t.string   "final_productivity"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "inclusion_buffer"
+    t.string   "resins"
+    t.string   "chromato_resins"
   end
 
   create_table "users", :force => true do |t|

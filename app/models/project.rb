@@ -8,11 +8,14 @@ class Project < ActiveRecord::Base
 	has_many :project_constructs, :dependent => :destroy
 	has_many :constructs, :through => :project_constructs
 
-	has_many :expressions, :dependent => :destroy
+	has_many :expressions, 	 :dependent => :destroy
+	has_many :purifications, :dependent => :destroy
 
 	accepts_nested_attributes_for :constructs,  :reject_if => lambda { |attr| attr['name'].blank? || attr['organism'].blank? }, 
 																:allow_destroy => true
 	accepts_nested_attributes_for :expressions, :reject_if => lambda { |attr| attr['system'].blank? },
+																:allow_destroy => true
+	accepts_nested_attributes_for :purifications, :reject_if => lambda { },
 																:allow_destroy => true
 
 	validates_presence_of :name, :company

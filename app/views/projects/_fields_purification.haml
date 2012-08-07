@@ -1,0 +1,173 @@
+.span8.offset1.well
+	%h6 PURIFICATION
+	%br/
+	%table{ cellpadding: 10 }
+		%tr
+			%td
+				%h4 Lysis
+			%td.form-column
+				%p
+					= f.radio_button :lysis, "small scale"
+					Small scale
+					= f.radio_button :lysis, "sonication"
+					Sonication
+					= f.radio_button :lysis, "homogenisation"
+					Homogenisation
+					= f.radio_button :lysis, "periplasmic extraction"
+					Periplasmic extraction
+		%tr
+			%td
+				%h4 Lysis buffer
+			%td.form-column
+				= f.text_field :lysis_buffer, class: "input-small", style: 'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Clarification
+			%td.form-column
+				%p
+					= f.radio_button :clarification, "centrifugation"
+					Centrifugation
+					= f.radio_button :clarification, "depth filtration"
+					Depth filtration
+					= f.radio_button :clarification, "membrane filtration"
+					Membrane filtration
+					= f.radio_button :clarification, "TFF"
+					TFF
+		%tr
+			%td
+				%h4 Preparation of extract
+			%td.form-column
+				%p
+					= f.radio_button :preparation_extract, "inclusion bodies preparation"
+					Inclusion bodies preparation
+					= f.radio_button :preparation_extract, "membrane preparation"
+					Membrane preparation
+		%tr
+			%td
+				%h4 Inclusion bodies solubilization buffer
+			%td.form-column
+				%p
+					= f.text_field :inclusion_buffer, class: "input-medium", style: 'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Refolding mode
+			%td.form-column
+				%p
+					= f.radio_button :refolding_mode, "dilution"
+					Dilution
+					= f.radio_button :refolding_mode, "dialysis"
+					Dialysis
+					= f.radio_button :refolding_mode, "TFF"
+					TFF
+					= f.radio_button :refolding_mode, "on column"
+					On column
+		%tr
+			%td
+				%h4 Refolding buffer
+			%td.form-column
+				%p
+					= f.text_field :refolding_buffer, class: "input-medium", style: 'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Refolding - Presence of
+			%td.form-column
+				%p
+					= f.radio_button :presence_of, "divalent ions"
+					Divalent ions
+					= f.radio_button :presence_of, "cofactor"
+					Cofactor
+					= f.radio_button :presence_of, "substrate"
+					Substrate
+					= f.radio_button :presence_of, "detergent"
+					Detergent
+		%tr
+			%td
+				%h4 Chromatography
+			%td.form-column
+				%p
+					= f.radio_button :chromatography, "CIEC"
+					CIEC
+					= f.radio_button :chromatography, "AIEC"
+					AIEC
+					= f.radio_button :chromatography, "HIC"
+					HIC
+					= f.radio_button :chromatography, "mixed-mode"
+					Mixed mode
+					= f.radio_button :chromatography, "SEC"
+					SEC
+					= f.radio_button :chromatography, "IMAC"
+					IMAC
+					= f.radio_button :chromatography, "protein A/G/L"
+					Protein A/G/L
+					= f.radio_button :chromatography, "immunopurification"
+					Immunopurification
+		%tr
+			%td
+				%h4 Chromatography resins
+			%td.form-column
+				%p
+					= f.text_field :chromato_resins, class: "input-medium", style: 'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Endotoxin removal step
+			%td.form-column
+				%p
+					= f.radio_button :endotoxin, "mustang q"
+					Mustang Q
+					%br/
+					= f.radio_button :endotoxin, text_input?('endotoxin', f.object.endotoxin), id: 'other_endotoxin_radio', checked: radio_checked?('endotoxin', f.object.endotoxin)
+					Other:
+					%input.input-small#other_endotoxin_text{ value: text_input?('endotoxin', f.object.endotoxin) }
+		%tr
+			%td
+				%h4 Concentration
+			%td.form-column
+				%p
+					= f.radio_button :concentration, "<0.1 mg/mL"
+					<0.1 mg/mL
+					= f.radio_button :concentration, "0.1-0.5 mg/mL"
+					0.1-0.5 mg/mL
+					= f.radio_button :concentration, "0.5-1 mg/mL"
+					0.5-1 mg/mL
+					= f.radio_button :concentration, "1-5 mg/mL"
+					1-5 mg/mL
+					= f.radio_button :concentration, "> 5mg/mL"
+					> 5mg/mL
+		%tr
+			%td
+				%h4 Composition of final buffer
+			%td.form-column
+				%p
+					= f.text_field :final_buffer, class: "input-medium", style: 'height:30px;font-size:16pt'
+		%tr
+			%td
+				%h4 Final filtration
+			%td.form-column
+				%p
+					= f.radio_button :final_filtration, "cellulose"
+					Cellulose
+					= f.radio_button :final_filtration, "PES"
+					PES
+					= f.radio_button :final_filtration, "PVDF"
+					PVDF			
+					%br/
+					= f.radio_button :final_filtration, text_input?('final_filtration', f.object.final_filtration), id: 'other_final_filtration_radio', checked: radio_checked?('final_filtration', f.object.final_filtration)
+					Other:
+					%input.input-small#other_final_filtration_text{ value: text_input?('final_filtration', f.object.final_filtration) }
+		%tr
+			%td
+				%h4 Final productivity
+			%td.form-column
+				%p
+					= f.radio_button :final_productivity, "<1 mg/L of culture"
+					<1 mg/L of culture
+					= f.radio_button :final_productivity, "1-10 mg/L of culture"
+					1-10 mg/L of culture
+					= f.radio_button :final_productivity, "10-50 mg/L of culture"
+					10-50 mg/L of culture
+					= f.radio_button :final_productivity, "50-100 mg/L of culture"
+					50-100 mg/L of culture
+					= f.radio_button :final_productivity, "100-300 mg/L of culture"
+					100-300 mg/L of culture
+					= f.radio_button :final_productivity, "> 300 mg/L of culture"
+					> 300 mg/L of culture
