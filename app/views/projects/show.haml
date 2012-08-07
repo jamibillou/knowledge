@@ -60,11 +60,13 @@
 				%i.icon-briefcase 
 				%span.title Contact info:
 				=@project.contact_info
+
 	- unless @project.lab_books.blank? 				
 		.span5.offset1
 			.well
 				%h6 LAB BOOKS
 				=@project.lab_books
+
 	- unless @project.expressions.empty?
 		.span11.offset1
 			.well
@@ -97,7 +99,9 @@
 					%span.title Solubility:
 					= selected_expression.solubility
 				- unless no_expression_conditions?
-					%h3 Expression conditions
+					%br/
+					%br/
+					%h6 Expression conditions
 					- unless selected_expression.strain.blank?
 						%br/
 						%span.title Strain:
@@ -114,3 +118,73 @@
 						%br/
 						%span.title Temperature:
 						= "#{selected_expression.temperature} °C"
+
+	- unless @project.purifications.empty?
+		.span11.offset1
+			.well
+				%H6 PURIFICATION
+				- unless selected_purification.lysis.blank?
+					%br/
+					%span.title Lysis:
+					= selected_purification.lysis
+				- unless selected_purification.lysis_buffer.blank?
+					%br/
+					%span.title Lysis buffer:
+					= selected_purification.lysis_buffer	
+				- unless selected_purification.clarification.blank?
+					%br/
+					%span.title Clarification:
+					= selected_purification.clarification
+				- unless selected_purification.clarification.blank?
+					%br/
+					%span.title Preparation extract:
+					= selected_purification.preparation_extract
+				- unless no_refolding?
+					%br/
+					%br/
+					%h6 REFOLDING
+					- unless selected_purification.refolding_mode.blank?
+						%br/
+						%span.title Refolding mode:
+						= selected_purification.refolding_mode
+					- unless selected_purification.refolding_buffer.blank?
+						%br/
+						%span.title Refolding buffer:
+						= selected_purification.refolding_buffer
+					- unless selected_purification.presence_of.blank?
+						%br/
+						%span.title Presence of:
+						= selected_purification.presence_of
+				- unless no_chromatography?
+					%br/
+					%br/
+					%h6 CHROMATOGRAPHY
+					- unless selected_purification.chromatography.blank?
+						%br/
+						%span.title Method:
+						= selected_purification.chromatography
+					- unless selected_purification.chromato_resins.blank?
+						%br/
+						%span.title Resins:
+						= selected_purification.chromato_resins
+					%br/
+				- unless selected_purification.endotoxin.blank?
+					%br/
+					%span.title Endotoxin removal step:
+					= selected_purification.endotoxin
+				- unless selected_purification.final_buffer.blank?
+					%br/
+					%span.title Final buffer:
+					= selected_purification.final_buffer
+				- unless selected_purification.concentration.blank?
+					%br/
+					%span.title Concentration:
+					= selected_purification.concentration
+				- unless selected_purification.final_filtration.blank?
+					%br/
+					%span.title Final filtration:
+					= selected_purification.final_filtration
+				- unless selected_purification.final_productivity.blank?
+					%br/
+					%span.title Final productivity:
+					= selected_purification.final_productivity

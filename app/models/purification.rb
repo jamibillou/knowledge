@@ -2,7 +2,7 @@ class Purification < ActiveRecord::Base
 
 	attr_accessible :project_id, :lysis, :lysis_buffer, :clarification, :preparation_extract, :refolding_mode, :refolding_buffer, :presence_of,
 									:chromatography, :endotoxin, :final_buffer, :concentration, :final_filtration, :final_productivity, :inclusion_buffer, :resins,
-									:chromato_resins
+									:chromato_resins, :status
 
 end
 # == Schema Information

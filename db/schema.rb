@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120807131837) do
+ActiveRecord::Schema.define(:version => 20120807145618) do
 
   create_table "constructs", :force => true do |t|
     t.string   "name"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20120807131837) do
     t.string   "inclusion_buffer"
     t.string   "resins"
     t.string   "chromato_resins"
+    t.string   "status"
   end
 
   create_table "users", :force => true do |t|

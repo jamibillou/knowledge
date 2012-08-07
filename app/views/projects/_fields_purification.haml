@@ -19,7 +19,7 @@
 			%td
 				%h4 Lysis buffer
 			%td.form-column
-				= f.text_field :lysis_buffer, class: "input-small", style: 'height:30px;font-size:16pt'
+				= f.text_field :lysis_buffer, class: "input-medium", style: 'height:30px;font-size:16pt'
 		%tr
 			%td
 				%h4 Clarification
@@ -171,3 +171,4 @@
 					100-300 mg/L of culture
 					= f.radio_button :final_productivity, "> 300 mg/L of culture"
 					> 300 mg/L of culture
+					= f.hidden_field :status, value: "selected"
