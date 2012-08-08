@@ -72,14 +72,15 @@
 				%h4 Refolding - Presence of
 			%td.form-column
 				%p
-					= f.radio_button :presence_of, "divalent ions"
+					%input.presence_of_check{ type: 'checkbox', id: 'divalent ions', checked: checkbox_checked?('divalent ions', f.object.presence_of) }
 					Divalent ions
-					= f.radio_button :presence_of, "cofactor"
+					%input.presence_of_check{ type: 'checkbox', id: 'cofactor', 		 checked: checkbox_checked?('cofactor', f.object.presence_of) }
 					Cofactor
-					= f.radio_button :presence_of, "substrate"
+					%input.presence_of_check{ type: 'checkbox', id: 'substrate', 		 checked: checkbox_checked?('substrate', f.object.presence_of) }
 					Substrate
-					= f.radio_button :presence_of, "detergent"
+					%input.presence_of_check{ type: 'checkbox', id: 'detergent', 		 checked: checkbox_checked?('detergent', f.object.presence_of) }
 					Detergent
+					= f.hidden_field :presence_of, :id => 'presence_of'
 		%tr
 			%td
 				%h4 Chromatography

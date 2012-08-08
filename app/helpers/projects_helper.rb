@@ -81,4 +81,8 @@ module ProjectsHelper
 				['cellulose','PES','PVDF'].include?(val) ? '' : val	
 		end		
 	end
+
+	def checkbox_checked?(id,val)
+		val.include?(id)
+	end
 end

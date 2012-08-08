@@ -54,18 +54,18 @@
 			%br/
 			- unless @project.contact.blank?
 				%span.title	Contact(s):
-				=@project.contact
+				= @project.contact
 				%br/
 			- unless @project.contact_info.blank?	
 				%i.icon-briefcase 
 				%span.title Contact info:
-				=@project.contact_info
+				= @project.contact_info
 
 	- unless @project.lab_books.blank? 				
 		.span5.offset1
 			.well
 				%h6 LAB BOOKS
-				=@project.lab_books
+				= @project.lab_books
 
 	- unless @project.expressions.empty?
 		.span11.offset1
@@ -154,7 +154,7 @@
 					- unless selected_purification.presence_of.blank?
 						%br/
 						%span.title Presence of:
-						= selected_purification.presence_of
+						= selected_purification.presence_of[0..-2]
 				- unless no_chromatography?
 					%br/
 					%br/
