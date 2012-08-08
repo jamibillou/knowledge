@@ -29,5 +29,6 @@ end
 #  inclusion_buffer    :string(255)
 #  resins              :string(255)
 #  chromato_resins     :string(255)
+#  status              :string(255)
 #
 

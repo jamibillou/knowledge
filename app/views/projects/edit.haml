@@ -48,3 +48,6 @@
 		= f.fields_for(:purifications) { |purification_builder| render 'fields_purification', f: purification_builder }
 		.pull-right.span2.offset3{ style: 'margin-top: 950px' }
 			=f.submit 'Edit this project', class: "btn-primary btn-gigantic"
+		= f.fields_for(:others) { |others_builder| render 'fields_others', f: other_builder }
+		.pull-right.span2.offset3{ style: 'margin-top: 200px' }
+			=f.submit 'Edit this project', class: "btn-primary btn-gigantic"

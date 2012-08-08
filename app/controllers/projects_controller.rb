@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 		@project.constructs.build
 		@project.expressions.build
 		@project.purifications.build
+		@project.others.build
 	end
 
 	def create
@@ -19,11 +20,13 @@ class ProjectsController < ApplicationController
 			@project.constructs.build
 			@project.expressions.build
 			@project.purifications.build
+			@project.others.build
 			render :new
 		else
 			@project.constructs.build(params[:project][:constructs])
 			@project.expressions.build(params[:project][:expressions])
 			@project.purifications.build(params[:project][:purifications])
+			@project.others.build(params[:project][:others])
 			@project.users << current_user
 			redirect_to root_path, flash: { notice: "The project has been created!" }
 		end
@@ -46,6 +49,11 @@ class ProjectsController < ApplicationController
 		else
 			@project.purifications.build
 		end
+		unless @project.others.empty?
+			@project.others.count { @project.others.build }
+		else
+			@project.others.build
+		end
 	end
 
 	def update
@@ -67,10 +75,17 @@ class ProjectsController < ApplicationController
 			else
 				@project.purifications.build
 			end
+			unless @project.others.empty?
+				@project.others.count { @project.others.build }
+			else
+				@project.others.build
+			end
 			redirect_to edit_project_path @project
 		else
 			@project.constructs.build(params[:project][:constructs])
 			@project.expressions.build(params[:project][:expressions])
+			@project.purifications.build(params[:project][:purifications])
+			@project.others.build(params[:project][:others])
 			redirect_to @project, flash: { notice: "Project has been updated!" }
 		end	
 	end
