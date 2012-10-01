@@ -1,0 +1,64 @@
+.span8.offset1.well
+	%h6 OTHERS
+	%br/
+	%table{ cellpadding: 10 }
+		%tr
+			%td
+				%h4 Plasmid unstability
+			%td.form-column
+				%p
+					= f.radio_button :plasmid_unstability, "loss of expression"
+					Loss of expression
+					= f.radio_button :plasmid_unstability, "low plasmid retention"
+					Low plasmid retention
+					%br/
+					= f.radio_button :plasmid_unstability, text_input?('plasmid_unstability', f.object.plasmid_unstability), id: 'other_plasmid_unstability_radio', checked: radio_checked?('plasmid_unstability',f.object.plasmid_unstability)
+					Other:
+					%input.input-small#other_plasmid_unstability_text{value: text_input?('plasmid_unstability', f.object.plasmid_unstability)}
+		%tr
+			%td
+				%h4 Post-tranlational modification
+			%td.form-column
+				%p
+					= f.radio_button :post_translational, "glycosylation"
+					Glycosylation
+					= f.radio_button :post_translational, "carbamylation"
+					Carbamylation
+					= f.radio_button :post_translational, "initial methyonine processing"
+					Initial methyonine processing
+					%br/
+					= f.radio_button :post_translational, text_input?('post_translational', f.object.post_translational), id: 'other_post_translational_radio', checked: radio_checked?('post_translational',f.object.post_translational)
+					Other:
+					%input.input-small#other_post_translational_text{value: text_input?('post_translational', f.object.post_translational)}
+		%tr
+			%td
+				%h4 Aggregation
+			%td.form-column
+				%p
+					= f.radio_button :aggregration, "aggregation"
+					Aggregation
+					= f.radio_button :aggregration, "degradation"
+					Degradation
+		%tr
+			%td
+				%h4 Impurities
+			%td.form-column
+				%p
+					%input.impurities_check{ type: 'checkbox', id: 'DNA', 			 checked: checkbox_checked?('DNA', f.object.impurities) }
+					DNA
+					%input.impurities_check{ type: 'checkbox', id: 'endotoxins', checked: checkbox_checked?('endotoxins', f.object.impurities) }
+					Endotoxins
+					%input.impurities_check{ type: 'checkbox', id: 'HCP', 		 	 checked: checkbox_checked?('HCP', f.object.impurities) }
+					HCP
+					= f.hidden_field :impurities, id: 'impurities'
+		%tr
+			%td
+				%h4 Lyophilisation
+			%td.form-column
+				%p
+					= f.radio_button :lyophilisation, "true"
+					Yes
+					= f.radio_button :lyophilisation, "false"
+					No					
+					= f.hidden_field :status, value: "selected"
+

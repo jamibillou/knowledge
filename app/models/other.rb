@@ -1,6 +1,6 @@
 class Other < ActiveRecord::Base
 
-	attr_accessible :project_id, :plasmid_unstability, :post_translational, :impurities, :aggregration, :lyophilisation
+	attr_accessible :project_id, :plasmid_unstability, :post_translational, :impurities, :aggregration, :lyophilisation, :status
 
 	belongs_to :project
 end
@@ -17,5 +17,6 @@ end
 #  lyophilisation      :boolean
 #  created_at          :datetime        not null
 #  updated_at          :datetime        not null
+#  status              :string(255)
 #
 

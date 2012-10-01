@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120808131339) do
+ActiveRecord::Schema.define(:version => 20120926123639) do
 
   create_table "constructs", :force => true do |t|
     t.string   "name"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20120808131339) do
     t.boolean  "lyophilisation"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "status"
   end
 
   create_table "project_constructs", :force => true do |t|

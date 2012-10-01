@@ -14,26 +14,26 @@
 			- unless @project.constructs.empty?
 				%h6 CONSTRUCT
 				.lead 
-					= "Protein: #{construct.name} (#{construct.protein_family} family)"
+					= "Protein: #{@project.construct.name} (#{@project.construct.protein_family} family)"
 					%br/
 					Organism:
-					= construct.organism
-				- unless construct.size.blank?
+					= @project.construct.organism
+				- unless @project.construct.size.blank?
 					%span.title Size:
-					= "#{construct.size} Da"
-				- unless construct.pi.blank?
+					= "#{@project.construct.size} Da"
+				- unless @project.construct.pi.blank?
 					%br/
 					%span.title PI:
-					= construct.pi
-				- unless construct.nb_cystein.blank?
+					= @project.construct.pi
+				- unless @project.construct.nb_cystein.blank?
 					%br/
 					%span.title Number of cysteins:
-					= construct.nb_cystein
+					= @project.construct.nb_cystein
 				%br/
 				%br/
-				- unless construct.sequence.blank?
+				- unless @project.construct.sequence.blank?
 					.lead Sequence:
-					%pre= construct.sequence	
+					%pre= @project.construct.sequence	
 
 	- unless project_managers.blank? && involved_people.blank?
 		.span5.offset1
@@ -71,120 +71,144 @@
 		.span11.offset1
 			.well
 				%H6 EXPRESSION
-				- unless selected_expression.system.blank?
+				- unless @project.selected_expression.system.blank?
 					%span.title System:
-					= selected_expression.system
-				- unless selected_expression.vector_backbone.blank?
+					= @project.selected_expression.system
+				- unless @project.selected_expression.vector_backbone.blank?
 					%br/
 					%span.title Vector backbone:
-					= selected_expression.vector_backbone
-				- unless selected_expression.gene.blank?
+					= @project.selected_expression.vector_backbone
+				- unless @project.selected_expression.gene.blank?
 					%br/
 					%span.title Gene:
-					= selected_expression.gene
-				- unless selected_expression.tag.blank?
+					= @project.selected_expression.gene
+				- unless @project.selected_expression.tag.blank?
 					%br/
 					%span.title Tag:
-					= selected_expression.tag
-				- unless selected_expression.cleavage_site.blank?
+					= @project.selected_expression.tag
+				- unless @project.selected_expression.cleavage_site.blank?
 					%br/
 					%span.title Cleavage site:
-					= selected_expression.cleavage_site
-				- unless selected_expression.compartment.blank?
+					= @project.selected_expression.cleavage_site
+				- unless @project.selected_expression.compartment.blank?
 					%br/
 					%span.title Compartment:
-					= selected_expression.compartment
-				- unless selected_expression.solubility.blank?
+					= @project.selected_expression.compartment
+				- unless @project.selected_expression.solubility.blank?
 					%br/
 					%span.title Solubility:
-					= selected_expression.solubility
-				- unless no_expression_conditions?
+					= @project.selected_expression.solubility
+				- unless @project.no_expression_conditions?
 					%br/
 					%br/
 					%h6 Expression conditions
-					- unless selected_expression.strain.blank?
+					- unless @project.selected_expression.strain.blank?
 						%br/
 						%span.title Strain:
-						= selected_expression.strain
-					- unless selected_expression.method.blank?
+						= @project.selected_expression.strain
+					- unless @project.selected_expression.method.blank?
 						%br/
 						%span.title Method:
-						= selected_expression.method
-					- unless selected_expression.medium.blank?
+						= @project.selected_expression.method
+					- unless @project.selected_expression.medium.blank?
 						%br/
 						%span.title Medium:
-						= selected_expression.medium
-					- unless selected_expression.temperature.blank?
+						= @project.selected_expression.medium
+					- unless @project.selected_expression.temperature.blank?
 						%br/
 						%span.title Temperature:
-						= "#{selected_expression.temperature} °C"
+						= "#{@project.selected_expression.temperature} °C"
 
 	- unless @project.purifications.empty?
 		.span11.offset1
 			.well
 				%H6 PURIFICATION
-				- unless selected_purification.lysis.blank?
+				- unless @project.selected_purification.lysis.blank?
 					%br/
 					%span.title Lysis:
-					= selected_purification.lysis
-				- unless selected_purification.lysis_buffer.blank?
+					= @project.selected_purification.lysis
+				- unless @project.selected_purification.lysis_buffer.blank?
 					%br/
 					%span.title Lysis buffer:
-					= selected_purification.lysis_buffer	
-				- unless selected_purification.clarification.blank?
+					= @project.selected_purification.lysis_buffer	
+				- unless @project.selected_purification.clarification.blank?
 					%br/
 					%span.title Clarification:
-					= selected_purification.clarification
-				- unless selected_purification.clarification.blank?
+					= @project.selected_purification.clarification
+				- unless @project.selected_purification.clarification.blank?
 					%br/
 					%span.title Preparation extract:
-					= selected_purification.preparation_extract
-				- unless no_refolding?
+					= @project.selected_purification.preparation_extract
+				- unless @project.no_refolding?
 					%br/
 					%br/
 					%h6 REFOLDING
-					- unless selected_purification.refolding_mode.blank?
+					- unless @project.selected_purification.refolding_mode.blank?
 						%br/
 						%span.title Refolding mode:
-						= selected_purification.refolding_mode
-					- unless selected_purification.refolding_buffer.blank?
+						= @project.selected_purification.refolding_mode
+					- unless @project.selected_purification.refolding_buffer.blank?
 						%br/
 						%span.title Refolding buffer:
-						= selected_purification.refolding_buffer
-					- unless selected_purification.presence_of.blank?
+						= @project.selected_purification.refolding_buffer
+					- unless @project.selected_purification.presence_of.blank?
 						%br/
 						%span.title Presence of:
-						= selected_purification.presence_of[0..-2]
-				- unless no_chromatography?
+						= @project.selected_purification.presence_of[0..-2]
+				- unless @project.no_chromatography?
 					%br/
 					%br/
 					%h6 CHROMATOGRAPHY
-					- unless selected_purification.chromatography.blank?
+					- unless @project.selected_purification.chromatography.blank?
 						%br/
 						%span.title Method:
-						= selected_purification.chromatography
-					- unless selected_purification.chromato_resins.blank?
+						= @project.selected_purification.chromatography
+					- unless @project.selected_purification.chromato_resins.blank?
 						%br/
 						%span.title Resins:
-						= selected_purification.chromato_resins
+						= @project.selected_purification.chromato_resins
 					%br/
-				- unless selected_purification.endotoxin.blank?
+				- unless @project.selected_purification.endotoxin.blank?
 					%br/
 					%span.title Endotoxin removal step:
-					= selected_purification.endotoxin
-				- unless selected_purification.final_buffer.blank?
+					= @project.selected_purification.endotoxin
+				- unless @project.selected_purification.final_buffer.blank?
 					%br/
 					%span.title Final buffer:
-					= selected_purification.final_buffer
-				- unless selected_purification.concentration.blank?
+					= @project.selected_purification.final_buffer
+				- unless @project.selected_purification.concentration.blank?
 					%br/
 					%span.title Concentration:
-					= selected_purification.concentration
-				- unless selected_purification.final_filtration.blank?
+					= @project.selected_purification.concentration
+				- unless @project.selected_purification.final_filtration.blank?
 					%br/
 					%span.title Final filtration:
-					= selected_purification.final_filtration
-				- unless selected_purification.final_productivity.blank?
+					= @project.selected_purification.final_filtration
+				- unless @project.selected_purification.final_productivity.blank?
 					%br/
 					%span.title Final productivity:
-					= selected_purification.final_productivity
+					= @project.selected_purification.final_productivity
+	- unless @project.others.empty?
+		.span11.offset1
+			.well
+				%H6 MISCELLANEOUS
+				- unless @project.selected_other.plasmid_unstability.blank?
+					%br/
+					%span.title Plasmid unstability:
+					= @project.selected_other.plasmid_unstability
+				- unless @project.selected_other.post_translational.blank?
+					%br/
+					%span.title Post-translational modification:
+					= @project.selected_other.post_translational
+				- unless @project.selected_other.aggregration.blank?
+					%br/
+					%span.title Aggregation:
+					= @project.selected_other.aggregration
+				- unless @project.selected_other.impurities.blank?
+					%br/
+					%span.title Impurities:
+					= @project.selected_other.impurities[0..-2]
+				- unless @project.selected_other.lyophilisation.nil?
+					%br/
+					%span.title Lyophilization:
+					= @project.selected_other.lyophilisation? ? "yes" : "no"
