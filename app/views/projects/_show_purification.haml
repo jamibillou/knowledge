@@ -1,0 +1,42 @@
+- unless @project.purifications.empty?
+	.span11.offset1
+		.well
+			%H6 PURIFICATION
+			- unless @project.selected_purification.lysis.blank?
+				%br/
+				%span.title Lysis:
+				= @project.selected_purification.lysis
+			- unless @project.selected_purification.lysis_buffer.blank?
+				%br/
+				%span.title Lysis buffer:
+				= @project.selected_purification.lysis_buffer	
+			- unless @project.selected_purification.clarification.blank?
+				%br/
+				%span.title Clarification:
+				= @project.selected_purification.clarification
+			- unless @project.selected_purification.clarification.blank?
+				%br/
+				%span.title Preparation extract:
+				= @project.selected_purification.preparation_extract
+			= render 'show_refolding'
+			= render 'show_chromatography'
+			- unless @project.selected_purification.endotoxin.blank?
+				%br/
+				%span.title Endotoxin removal step:
+				= @project.selected_purification.endotoxin
+			- unless @project.selected_purification.final_buffer.blank?
+				%br/
+				%span.title Final buffer:
+				= @project.selected_purification.final_buffer
+			- unless @project.selected_purification.concentration.blank?
+				%br/
+				%span.title Concentration:
+				= @project.selected_purification.concentration
+			- unless @project.selected_purification.final_filtration.blank?
+				%br/
+				%span.title Final filtration:
+				= @project.selected_purification.final_filtration
+			- unless @project.selected_purification.final_productivity.blank?
+				%br/
+				%span.title Final productivity:
+				= @project.selected_purification.final_productivity

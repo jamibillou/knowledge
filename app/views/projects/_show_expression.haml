@@ -1,0 +1,51 @@
+- unless @project.expressions.empty?
+	.span11.offset1
+		.well
+			%H6 EXPRESSION
+			- unless @project.selected_expression.system.blank?
+				%span.title System:
+				= @project.selected_expression.system
+			- unless @project.selected_expression.vector_backbone.blank?
+				%br/
+				%span.title Vector backbone:
+				= @project.selected_expression.vector_backbone
+			- unless @project.selected_expression.gene.blank?
+				%br/
+				%span.title Gene:
+				= @project.selected_expression.gene
+			- unless @project.selected_expression.tag.blank?
+				%br/
+				%span.title Tag:
+				= @project.selected_expression.tag
+			- unless @project.selected_expression.cleavage_site.blank?
+				%br/
+				%span.title Cleavage site:
+				= @project.selected_expression.cleavage_site
+			- unless @project.selected_expression.compartment.blank?
+				%br/
+				%span.title Compartment:
+				= @project.selected_expression.compartment
+			- unless @project.selected_expression.solubility.blank?
+				%br/
+				%span.title Solubility:
+				= @project.selected_expression.solubility
+			- unless @project.no_expression_conditions?
+				%br/
+				%br/
+				%h6 Expression conditions
+				- unless @project.selected_expression.strain.blank?
+					%br/
+					%span.title Strain:
+					= @project.selected_expression.strain
+				- unless @project.selected_expression.method.blank?
+					%br/
+					%span.title Method:
+					= @project.selected_expression.method
+				- unless @project.selected_expression.medium.blank?
+					%br/
+					%span.title Medium:
+					= @project.selected_expression.medium
+				- unless @project.selected_expression.temperature.blank?
+					%br/
+					%span.title Temperature:
+					= "#{@project.selected_expression.temperature} °C"

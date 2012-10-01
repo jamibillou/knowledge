@@ -1,0 +1,11 @@
+- unless project_managers.blank? && involved_people.blank?
+	.span5.offset1
+		.well
+			%h6 PX
+			- unless project_managers.blank?
+				%span.title	Project manager(s):
+				= project_managers
+				%br/
+			- unless involved_people.blank?
+				%span.title	Involved people:
+				= involved_people

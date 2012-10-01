@@ -1,0 +1,16 @@
+- unless @project.no_refolding?
+	%br/
+	%br/
+	%h6 REFOLDING
+	- unless @project.selected_purification.refolding_mode.blank?
+		%br/
+		%span.title Refolding mode:
+		= @project.selected_purification.refolding_mode
+	- unless @project.selected_purification.refolding_buffer.blank?
+		%br/
+		%span.title Refolding buffer:
+		= @project.selected_purification.refolding_buffer
+	- unless @project.selected_purification.presence_of.blank?
+		%br/
+		%span.title Presence of:
+		= @project.selected_purification.presence_of[0..-2]

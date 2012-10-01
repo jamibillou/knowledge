@@ -1,0 +1,24 @@
+- unless @project.others.empty?
+	.span11.offset1
+		.well
+			%H6 MISCELLANEOUS
+			- unless @project.selected_other.plasmid_unstability.blank?
+				%br/
+				%span.title Plasmid unstability:
+				= @project.selected_other.plasmid_unstability
+			- unless @project.selected_other.post_translational.blank?
+				%br/
+				%span.title Post-translational modification:
+				= @project.selected_other.post_translational
+			- unless @project.selected_other.aggregration.blank?
+				%br/
+				%span.title Aggregation:
+				= @project.selected_other.aggregration
+			- unless @project.selected_other.impurities.blank?
+				%br/
+				%span.title Impurities:
+				= @project.selected_other.impurities[0..-2]
+			- unless @project.selected_other.lyophilisation.nil?
+				%br/
+				%span.title Lyophilization:
+				= @project.selected_other.lyophilisation? ? "yes" : "no"

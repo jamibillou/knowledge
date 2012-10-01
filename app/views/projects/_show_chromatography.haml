@@ -1,0 +1,13 @@
+- unless @project.no_chromatography?
+	%br/
+	%br/
+	%h6 CHROMATOGRAPHY
+	- unless @project.selected_purification.chromatography.blank?
+		%br/
+		%span.title Method:
+		= @project.selected_purification.chromatography
+	- unless @project.selected_purification.chromato_resins.blank?
+		%br/
+		%span.title Resins:
+		= @project.selected_purification.chromato_resins
+	%br/

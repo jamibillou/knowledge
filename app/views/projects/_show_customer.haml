@@ -1,0 +1,14 @@
+.span5.offset1
+	.well
+		%h6 CUSTOMER
+		%span.title	Company:
+		= @project.company
+		%br/
+		- unless @project.contact.blank?
+			%span.title	Contact(s):
+			= @project.contact
+			%br/
+		- unless @project.contact_info.blank?	
+			%i.icon-briefcase 
+			%span.title Contact info:
+			= @project.contact_info

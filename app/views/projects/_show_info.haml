@@ -1,0 +1,29 @@
+%br/
+.span11.offset1{ :style => 'margin-top:20px;' }
+	.well
+		%h6 GENERAL INFO
+		- unless @project.description.blank?
+			%p=simple_format(@project.description)
+		- unless @project.constructs.empty?
+			%h6 CONSTRUCT
+			.lead 
+				= "Protein: #{@project.construct.name} (#{@project.construct.protein_family} family)"
+				%br/
+				Organism:
+				= @project.construct.organism
+			- unless @project.construct.size.blank?
+				%span.title Size:
+				= "#{@project.construct.size} Da"
+			- unless @project.construct.pi.blank?
+				%br/
+				%span.title PI:
+				= @project.construct.pi
+			- unless @project.construct.nb_cystein.blank?
+				%br/
+				%span.title Number of cysteins:
+				= @project.construct.nb_cystein
+			%br/
+			%br/
+			- unless @project.construct.sequence.blank?
+				.lead Sequence:
+				%pre= @project.construct.sequence	
