@@ -1,9 +1,9 @@
 .right-button
-	%a.btn.btn-primary{ href: edit_project_path }
+	%a.span2.btn.btn-primary{ href: edit_project_path, style: 'position:fixed;right:50px;' }
 		%i.icon-pencil.icon-white
 		Edit project
 .row
-	.span11{ :style => 'margin-left:40px'}
+	.span11{:style => 'margin-left:40px'}
 		%h1=@project.name
 	= render 'show_info'
 	= render 'show_people'		
