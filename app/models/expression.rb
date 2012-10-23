@@ -6,6 +6,8 @@ class Expression < ActiveRecord::Base
 	attr_accessor :other_vector_backbone
 
 	belongs_to :project
+
+	has_many :comments,		as: :commentable
 end
 
 # == Schema Information

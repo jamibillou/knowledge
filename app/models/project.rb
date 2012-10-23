@@ -9,9 +9,10 @@ class Project < ActiveRecord::Base
 	has_many :project_constructs, :dependent => :destroy
 	has_many :constructs, :through => :project_constructs
 
-	has_many :expressions, 	 :dependent => :destroy
-	has_many :purifications, :dependent => :destroy
-	has_many :others,		 		 :dependent => :destroy
+	has_many :expressions, 	 		:dependent => :destroy
+	has_many :purifications, 		:dependent => :destroy
+	has_many :others,		 		 		:dependent => :destroy
+	has_many :comments, 				as: :commentable
 
 	accepts_nested_attributes_for :constructs,  	:reject_if => lambda { |attr| attr['name'].blank? || attr['organism'].blank? }, 
 																:allow_destroy => true
@@ -62,7 +63,7 @@ class Project < ActiveRecord::Base
 
 	def tested_other
 		others.where(status: "tested").first
-	end	
+	end
 end
 # == Schema Information
 #

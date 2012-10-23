@@ -1,0 +1,5 @@
+%br/
+%br/
+= form_for comment do |f|
+	= f.text_area :content, class:"input-xlarge", rows: 3, placeholder: 'Add your comment'
+	= f.submit 'Add', class: 'span1 btn btn-primary'

@@ -1,18 +1,21 @@
 class Comment < ActiveRecord::Base
 
-	attr_accessible :user, :text
+	belongs_to :commentable, polymorphic: true
+  belongs_to :author, class_name: 'User', foreign_key: :author_id
 
-	belongs_to :user
+	validates :content, length: { maximum: 140 }, presence: true
 	
 end
 # == Schema Information
 #
 # Table name: comments
 #
-#  id         :integer         not null, primary key
-#  user_id    :integer
-#  text       :string(255)
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  id               :integer         not null, primary key
+#  content          :text
+#  commentable_id   :integer
+#  commentable_type :string(255)
+#  author_id        :integer
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
 #
 

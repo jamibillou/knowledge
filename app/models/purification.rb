@@ -4,6 +4,7 @@ class Purification < ActiveRecord::Base
 									:chromatography, :endotoxin, :final_buffer, :concentration, :final_filtration, :final_productivity, :inclusion_buffer, :resins,
 									:chromato_resins, :status
 
+	has_many :comments,	as: :commentable
 end
 # == Schema Information
 #

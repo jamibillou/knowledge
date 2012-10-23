@@ -3,6 +3,8 @@ class Other < ActiveRecord::Base
 	attr_accessible :project_id, :plasmid_unstability, :post_translational, :impurities, :aggregration, :lyophilisation, :status
 
 	belongs_to :project
+
+	has_many :comments,		as: :commentable
 end
 # == Schema Information
 #

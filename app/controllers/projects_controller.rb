@@ -3,6 +3,10 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+		@project_comment = Comment.new
+		@purification_comment = Comment.new
+		@expression_comment = Comment.new
+		@other_comment = Comment.new
 	end
 
 	def new

@@ -1,0 +1,7 @@
+- object.comments.each do |comment|
+	%br/
+	%br/
+	%blockquote= comment.content
+	%h6.pull-right
+		= "by #{comment.author.fullname}, "
+		= time_ago_in_words(comment.created_at)+' ago'

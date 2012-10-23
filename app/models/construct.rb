@@ -2,8 +2,8 @@ class Construct < ActiveRecord::Base
 
 	attr_accessible :name, :organism, :protein_family, :size, :pi, :nb_cystein, :sequence
 
-  has_many :project_constructs, :dependent => :destroy
-  has_many :projects, :through => :project_constructs
+  has_many :project_constructs, dependent: :destroy
+  has_many :projects, 					through: :project_constructs
 
 end
 # == Schema Information

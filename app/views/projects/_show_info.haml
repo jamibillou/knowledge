@@ -1,5 +1,5 @@
 %br/
-.span11.offset1{ :style => 'margin-top:20px;' }
+.span10.offset1{ :style => 'margin-top:20px;' }
 	.well
 		%h6 GENERAL INFO
 		- unless @project.description.blank?
@@ -26,4 +26,11 @@
 			%br/
 			- unless @project.construct.sequence.blank?
 				.lead Sequence:
-				%pre= @project.construct.sequence	
+				%pre= @project.construct.sequence
+		- unless @project.comments.blank?
+			%a.comment_link{href:'#'}
+				%i.icon-comment
+				= "#{@project.comments.count} comment(s)"
+		- unless @project.comments.blank?
+			= render 'show_comments', object: @project
+			= render 'comments/new', comment: @project_comment
