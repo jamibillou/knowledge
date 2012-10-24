@@ -33,4 +33,4 @@
 				= "#{@project.comments.count} comment(s)"
 		- unless @project.comments.blank?
 			= render 'show_comments', object: @project
-			= render 'comments/new', comment: @project_comment
+			= render 'comments/new',  comment: @project_comment, object: @project

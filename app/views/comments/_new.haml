@@ -2,4 +2,7 @@
 %br/
 = form_for comment do |f|
 	= f.text_area :content, class:"input-xlarge", rows: 3, placeholder: 'Add your comment'
+	= f.hidden_field :author_id, value: "#{current_user.id}"
+	%input{ type: 'hidden', value: "#{object.id}", name: "#{object.class}_id" }
+	%br/
 	= f.submit 'Add', class: 'span1 btn btn-primary'

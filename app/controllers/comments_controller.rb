@@ -5,6 +5,17 @@ def index
   @comments    = @commentable.comments
 end	
 
+def create
+	@commentable = find_commentable
+	@comment = @commentable.comments.create(params[:comment])
+	unless @comment.save
+		flash[:error] = error_messages(@comment)
+		redirect_to root_path
+	else
+		redirect_to root_path, flash: { success: 'Comment added!' }
+	end	
+end	
+
 private
 	#Return the selected object, in order to display its comments
 	def find_commentable
