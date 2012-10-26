@@ -40,3 +40,11 @@
 				%br/
 				%span.title Final productivity:
 				= @project.selected_purification.final_productivity
+			%br/
+			- unless @project.selected_purification.comments.blank?
+				%br/
+				%a.comment_link{href:'javascript:void(0)', class: 'show_comment'}
+					%i.icon-comment
+					= "#{@project.selected_purification.comments.count} comment(s)"
+				= render 'show_comments', object: @project.selected_purification
+			= render 'comments/new',  comment: @purification_comment, object: @project.selected_purification

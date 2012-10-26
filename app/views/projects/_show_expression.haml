@@ -52,8 +52,8 @@
 			%br/
 			- unless @project.selected_expression.comments.blank?
 				%br/
-				%a.comment_link{href:'#', class: 'show_comment'}
+				%a.comment_link{href:'javascript:void(0)', class: 'show_comment'}
 					%i.icon-comment
 					= "#{@project.selected_expression.comments.count} comment(s)"
 				= render 'show_comments', object: @project.selected_expression
-				= render 'comments/new',  comment: @expression_comment, object: @project.selected_expression
+			= render 'comments/new',  comment: @expression_comment, object: @project.selected_expression

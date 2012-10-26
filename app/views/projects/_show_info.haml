@@ -28,8 +28,8 @@
 				.lead Sequence:
 				%pre= @project.construct.sequence
 		- unless @project.comments.blank?
-			%a.comment_link{href:'#', class: 'show_comment'}
+			%a.comment_link{href:'javascript:void(0)', class: 'show_comment'}
 				%i.icon-comment
 				= "#{@project.comments.count} comment(s)"
 			= render 'show_comments', object: @project
-			= render 'comments/new',  comment: @project_comment, object: @project
+		= render 'comments/new',  comment: @project_comment, object: @project
