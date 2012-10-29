@@ -10,10 +10,10 @@ def create
 	@comment = @commentable.comments.create(params[:comment])
 	unless @comment.save
 		flash[:error] = error_messages(@comment)
-		redirect_to root_path
+		redirect_to (@commentable.class.name == 'Project' ? @commentable : @commentable.project)
 	else
-		redirect_to root_path, flash: { success: 'Comment added!' }
-	end	
+		redirect_to @commentable.project, flash: { success: 'Comment added!' }
+	end
 end	
 
 private
