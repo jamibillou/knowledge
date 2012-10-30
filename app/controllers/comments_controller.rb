@@ -12,9 +12,9 @@ def create
 		flash[:error] = error_messages(@comment)
 		redirect_to (@commentable.class.name == 'Project' ? @commentable : @commentable.project)
 	else
-		redirect_to @commentable.project, flash: { success: 'Comment added!' }
+		redirect_to (@commentable.class.name == 'Project' ? @commentable : @commentable.project), flash: { success: 'Comment added!' }
 	end
-end	
+end
 
 private
 	#Return the selected object, in order to display its comments

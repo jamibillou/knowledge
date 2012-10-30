@@ -1,4 +1,4 @@
-Knowledge::Application.routes.draw do
+  Knowledge::Application.routes.draw do
 
   devise_for :users
 
@@ -16,6 +16,7 @@ Knowledge::Application.routes.draw do
   	resources :comments
   end
 
-  root :to => 'pages#index'
+  match 'search' => 'projects#search'
 
+  root :to => 'pages#index'
 end

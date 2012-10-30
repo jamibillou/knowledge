@@ -93,4 +93,10 @@ class ProjectsController < ApplicationController
 			redirect_to @project, flash: { notice: "Project has been updated!" }
 		end	
 	end
+
+	def search
+		@project  = Project.last
+		@projects = Project.search params[:search]
+		render 'pages/index'
+	end
 end

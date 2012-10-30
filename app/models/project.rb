@@ -64,6 +64,15 @@ class Project < ActiveRecord::Base
 	def tested_other
 		others.where(status: "tested").first
 	end
+
+	def self.search(search)
+		unless search.blank?
+			search_condition = "%#{search}%"
+			find(:all, :conditions => ["company LIKE ? OR name LIKE ? OR contact LIKE ? OR contact_info LIKE ?",search_condition,search_condition,search_condition,search_condition])
+		else
+			nil
+		end	
+	end
 end
 # == Schema Information
 #

@@ -11,8 +11,29 @@
 		.span8.offset1
 			.well
 				%strong
-					= link_to @project.users.last.fullname, @project.users.last, :style => 'color:black' 
+					= link_to @project.users.last.fullname, @project.users.last, style: 'color:black' 
 				created a new project:
 				= link_to @project.name, @project
 				%h6.pull-right
 					= time_ago_in_words(@project.created_at)+' ago'
+.row
+	.span10.offset1.lead
+		Search
+	.span10.offset1
+		=form_tag controller: 'projects', action: 'search', method: :get do
+			.input-append
+				%input#search.input-xxlarge{ placeholder: 'Type your search', name: 'search', value: "#{params[:search]}" }
+					%button.btn.btn-large.btn-primary{ type: 'submit', style: 'margin-left:-4px;'}
+						%i.icon-search
+- unless @projects.blank?
+	.row
+		.span10.offset1.well
+			.lead
+				= "#{@projects.count} result(s) found"
+			- @projects.each do |project|
+				= link_to project.name, project			
+- if @projects.blank? && !params[:search].blank?
+	.row
+		.span10.offset1.well
+			.lead
+				= "No result(s) found..."	
